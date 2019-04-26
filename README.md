@@ -1,4 +1,4 @@
-# Workshift selector
+# Job shift scheduler
 
 In this form, the user is able to select the days and times that they want to work, and save their preferences.
 
