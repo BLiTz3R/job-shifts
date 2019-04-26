@@ -1,0 +1,186 @@
+body {
+  background: #e8edfd;
+}
+  
+.wrapper {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0 auto;
+  max-width: 800px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  color: #000;
+}
+
+.row {
+  width: 100%;
+  margin: 10px 0;
+}
+
+p {
+  text-align: left;
+  width: 100%;
+  font-size: 1.5em;
+}
+
+.app {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  text-align: center;
+  font-size: 0.8em; 
+  padding: 2vh 0 4vh 0;
+  background: #fff;
+  border-radius: 10px;
+}
+
+.app-logo {
+  height: 12vh;
+  pointer-events: none;
+}
+
+.app-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 80%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.app-header p {
+  display: block;
+  font-size: calc(10px + 4vmin);
+}
+
+.app-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 80%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.button {
+  margin-top: 20px;
+  color: white;
+  background: #2198ee;
+  padding: 10px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 2px 20px #d9d9d9;
+  box-shadow:         0 2px 20px #d9d9d9;
+}
+
+.button:hover {
+  background: #1872b3;
+}
+
+.days {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+/* Hide default checkbox */
+.app-content input[type="checkbox"] {
+  display: none;
+}
+
+/* Replace it with Font Awesome icons, unchecked grey color default */
+.app-content input + label:before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900; /* 900 for solid icons */
+  display: inline-block;
+  font-size: calc(10px + 1vmin);
+  color: #d9d9d9;
+  border: 2px solid #d9d9d9;
+  border-radius: calc(10px + 1vmin);
+  padding: 5px;
+}
+
+.morning,
+.night {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+/* Sun icon for morning */
+.morning input + label:before {
+  content: "\f185";
+}
+
+/* Moon icon for night */
+.night input + label:before {
+  content: "\f186";
+}
+
+/* Turn blue color on check */
+.morning input:checked + label:before,
+.night input:checked + label:before {
+  color: #2198ee;
+  border: 2px solid #2198ee;
+}
+
+/* Alert on wrong input */
+.alert {
+  font-size: calc(10px + 1vmin);
+  position: relative;
+  padding: .75rem 1.25rem;
+  margin-top: 1rem;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+  color: #fff;
+  background-color: #c70c0c96;
+  border-color: #ff0000;
+}
+
