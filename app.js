@@ -1,8 +1,7 @@
 // Set shifts object with all needed data, make final output (selectedShifts) global
 const shifts = {
-    days: ['Δευ','Τρι','Τετ','Πεμ','Παρ','Σαβ','Κυρ'],
-    daysFull: ['Δευτέρα','Τρίτη','Τετάρτη','Πέμπτη','Παρασκευή','Σάββατο','Κυριακή'],
-    time: ['πρωί', 'βράδυ']
+    days: ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'],
+    time: ['morning', 'night']
 };
 let selectedShifts;
 
@@ -24,7 +23,7 @@ shifts.days.forEach(function(day, i) {
     // Days span
     const span = document.createElement('span');
     span.id = `day-${i}`;
-    let dayText = document.createTextNode(day);
+    let dayText = document.createTextNode(day.slice(0,3));
     span.appendChild(dayText);
     daysDiv.appendChild(span);
 
@@ -55,7 +54,7 @@ button.setAttribute('type', 'submit');
 button.id = 'submit';
 button.name = 'submit';
 button.className = 'button submit';
-button.setAttribute('value', 'ΑΠΟΣΤΟΛΗ');
+button.setAttribute('value', 'SEND');
 const app = document.querySelector('.app');
 appContent.appendChild(button);
 
@@ -73,23 +72,24 @@ function getSelected() {
     checkedArray = Array.from(checked);
 
     if (!checkedArray || !checkedArray.length) { // If array or array.length are falsy
-            showError('Παρακαλώ επίλεξε τις βάρδιες που προτιμάς!') // Show error message
+            showError('You did not select anything!') // Show error message
 
     } else { // Otherwise execute rest of the code
 
         // Sort array by day, by comparing id's last char (which is the loop index used above)
         const checkedSorted = checkedArray.sort((a,b) => {
+            
             return a.id[a.id.length-1] - b.id[b.id.length-1];
         });
+
+        console.log(checkedSorted);
     
-        // Loop through sorted array and push Greek, complete words to our final array
+        // Loop through sorted array and push complete words to our final array
         checkedSorted.forEach(function(check) {
             translatedShift = check.id; // Get id
-            shifts.daysFull.forEach(function(day, i) {
+            shifts.days.forEach(function(day, i) {
                 translatedShift = translatedShift.replace(i, day); // Replace last char (index) with corresponding day
             })
-            translatedShift = translatedShift.replace('morning', shifts.time[0]); // "Translate" morning and night
-            translatedShift = translatedShift.replace('night', shifts.time[1]); 
             userSelection.push(translatedShift); // Push to array
         })
 
@@ -112,8 +112,8 @@ function showError(error) {
         errorDiv.className = 'alert';
 
         // Get elements
-        const header = document.querySelector('.app-header');
-        const headerP = document.querySelector('.app-header p');
+        const header = document.querySelector('.app-content');
+        const headerP = document.querySelector('.days');
 
         // Create text node and append to div
         errorDiv.appendChild(document.createTextNode(error));

@@ -1,25 +1,10 @@
 body {
   background: #e8edfd;
 }
-  
+
 .wrapper {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
   margin: 0 auto;
   max-width: 800px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
   color: #000;
 }
 
@@ -29,28 +14,18 @@ body {
 }
 
 p {
-  text-align: left;
+  text-align: center;
   width: 100%;
-  font-size: 1.5em;
+  font-size: calc(8px + 2vmin);
 }
 
 .app {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  width: 100%;
-  text-align: center;
-  font-size: 0.8em; 
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.8em;
   padding: 2vh 0 4vh 0;
   background: #fff;
   border-radius: 10px;
@@ -62,25 +37,18 @@ p {
 }
 
 .app-header {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  width: 80%;
+  flex-direction: column;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
 }
 
 .app-header p {
-  display: block;
   font-size: calc(10px + 4vmin);
+  margin-left: 20px;
 }
 
 .app-content {
@@ -90,14 +58,14 @@ p {
   width: 80%;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .button {
@@ -107,7 +75,7 @@ p {
   padding: 10px;
   border-radius: 4px;
   -webkit-box-shadow: 0 2px 20px #d9d9d9;
-  box-shadow:         0 2px 20px #d9d9d9;
+  box-shadow: 0 2px 20px #d9d9d9;
 }
 
 .button:hover {
@@ -119,27 +87,10 @@ p {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-/* Hide default checkbox */
-.app-content input[type="checkbox"] {
-  display: none;
-}
-
-/* Replace it with Font Awesome icons, unchecked grey color default */
-.app-content input + label:before {
-  font-family: "Font Awesome 5 Free";
-  font-weight: 900; /* 900 for solid icons */
-  display: inline-block;
-  font-size: calc(10px + 1vmin);
-  color: #d9d9d9;
-  border: 2px solid #d9d9d9;
-  border-radius: calc(10px + 1vmin);
-  padding: 5px;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .morning,
@@ -148,27 +99,42 @@ p {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: distribute;
-      justify-content: space-around;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: space-around;
 }
 
 /* Sun icon for morning */
-.morning input + label:before {
+.morning input+label:before {
   content: "\f185";
 }
 
 /* Moon icon for night */
-.night input + label:before {
+.night input+label:before {
   content: "\f186";
 }
 
 /* Turn blue color on check */
-.morning input:checked + label:before,
-.night input:checked + label:before {
+.morning input:checked+label:before,
+.night input:checked+label:before {
   color: #2198ee;
   border: 2px solid #2198ee;
+}
+
+/* Hide default checkbox */
+.app-content input[type="checkbox"] {
+  display: none;
+}
+
+/* Replace it with Font Awesome icons, unchecked grey color default */
+.app-content input+label:before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  /* 900 for solid icons */
+  display: inline-block;
+  font-size: calc(10px + 1vmin);
+  color: #d9d9d9;
+  border: 2px solid #d9d9d9;
+  border-radius: calc(10px + 1vmin);
+  padding: 5px;
 }
 
 /* Alert on wrong input */
@@ -176,11 +142,10 @@ p {
   font-size: calc(10px + 1vmin);
   position: relative;
   padding: .75rem 1.25rem;
-  margin-top: 1rem;
+  margin-bottom: 1rem;
   border: 1px solid transparent;
   border-radius: .25rem;
   color: #fff;
   background-color: #c70c0c96;
   border-color: #ff0000;
 }
-
